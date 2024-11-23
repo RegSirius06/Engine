@@ -56,7 +56,6 @@ public final class Labyrinth2D implements Iterable<List<WallType>> {
     private Point genSpawnPoint(List<WallType> labyrinth, @NotNull List<LightSource> lightSources, int dimension) {
         Random random = new Random();
         List<Point> emptyCells = getEmptyPoints(labyrinth, dimension);
-
         emptyCells.removeAll(lightSources.stream().map(LightSource::getPoint).toList());
 
         return emptyCells.get(random.nextInt(emptyCells.size()));
