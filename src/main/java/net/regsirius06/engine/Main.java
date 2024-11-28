@@ -6,6 +6,6 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new LabyrinthFrame().setVisible(true));
+        SwingUtilities.invokeLater(() -> new LabyrinthFrame(960, 540).setVisible(true));
     }
 }

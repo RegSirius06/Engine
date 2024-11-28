@@ -9,7 +9,7 @@ public class LightSource extends Point {
     public static final List<Color> COLORS = List.of(
             Color.GREEN, Color.BLUE, Color.MAGENTA,
             Color.ORANGE, Color.YELLOW, Color.CYAN,
-            Color.RED, Color.PINK, new Color(128, 0, 255)
+            Color.PINK, new Color(128, 0, 255)
     );
     private final Color color;
 

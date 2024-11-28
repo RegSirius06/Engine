@@ -2,6 +2,8 @@ package net.regsirius06.engine.labyrinth;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Random;
+
 public class Player extends Point {
     public double direction;
 
@@ -12,6 +14,10 @@ public class Player extends Point {
 
     public Player(@NotNull Point point, double direction) {
         this(point.getX(), point.getY(), direction);
+    }
+
+    public Player(Point spawnPoint) {
+        this(spawnPoint, (new Random()).nextDouble(-Math.PI, Math.PI));
     }
 
     public void add(double step, double angle) {

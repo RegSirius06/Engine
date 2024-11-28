@@ -10,7 +10,7 @@ import java.util.List;
 
 import static net.regsirius06.engine.labyrinth.Algorithm.*;
 
-public final class Labyrinth2D implements Iterable<List<WallType>> {
+public class Labyrinth2D implements Iterable<List<WallType>> {
     private final int dimension;
     private final List<LightSource> lightSources;
     private final List<WallType> labyrinth;
@@ -63,6 +63,18 @@ public final class Labyrinth2D implements Iterable<List<WallType>> {
 
     public WallType get(int x, int y) {
         return this.labyrinth.get(getIndex(x, y, dimension));
+    }
+
+    public boolean isCollidingWithWall(double x, double y) {
+        int gridX = (int) x;
+        int gridY = (int) y;
+
+        if (gridX < 0 || gridX >= dimension || gridY < 0 || gridY >= dimension) {
+            return true;
+        }
+
+        WallType wallType = this.get(gridX, gridY);
+        return wallType.notEmpty();
     }
 
     public @Nullable LightSource getLightSource(double x, double y) {
