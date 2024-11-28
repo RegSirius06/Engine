@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "net.regsirius06.engine"
-version = "0.1.0-SNAPSHOT"
+version = "beta-0.1.1"
 
 repositories {
     mavenCentral()
@@ -20,7 +20,7 @@ tasks.withType<Jar> {
         attributes(
             "Main-Class" to "net.regsirius06.engine.Main",
             "Implementation-Title" to "Engine",
-            "Implementation-Version" to "beta-0.1.0"
+            "Implementation-Version" to "beta-0.1.1"
         )
     }
 }
