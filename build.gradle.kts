@@ -1,12 +1,19 @@
 plugins {
     id("java")
+    id("application")
+    id("com.gradleup.shadow") version "9.0.0-beta2"
 }
 
 group = "net.regsirius06.engine"
-version = "beta-0.1.1"
+version = "beta-0.2.0"
+val mainClassName = "net.regsirius06.engine.Main"
 
 repositories {
     mavenCentral()
+}
+
+application {
+    mainClass.set(mainClassName)
 }
 
 dependencies {
@@ -15,14 +22,21 @@ dependencies {
     implementation("org.jetbrains:annotations:24.0.0")
 }
 
-tasks.withType<Jar> {
+tasks.named<Jar>("jar") {
     manifest {
         attributes(
-            "Main-Class" to "net.regsirius06.engine.Main",
+            "Main-Class" to mainClassName,
             "Implementation-Title" to "Engine",
-            "Implementation-Version" to "beta-0.1.1"
+            "Implementation-Version" to version
         )
     }
+}
+
+tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
+    manifest {
+        from(tasks.named<Jar>("jar").get().manifest)
+    }
+    archiveClassifier.set("fat")
 }
 
 tasks.test {
