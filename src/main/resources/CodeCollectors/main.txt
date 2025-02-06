@@ -1,0 +1,15 @@
+package com.example;
+
+import net.regsirius06.engine.API.Core;
+import net.regsirius06.engine.API.annotations.ImplementationOf;
+import net.regsirius06.engine.API.annotations.ModId;
+import net.regsirius06.engine.plugins.loaders.ExecutablesPluginLoader;
+
+mod_id
+@ImplementationOf(Core.class)
+class
+    @Override
+    public ExecutablesPluginLoader getExecutables() {
+        return new ExecutablesPluginLoader(this.getClass());
+    }
+}

@@ -5,19 +5,22 @@ import org.jetbrains.annotations.NotNull;
 import java.awt.*;
 
 /**
- * The {@code ColoredPoint} class extends the {@code Point} class and adds a color attribute
- * to the point. This class allows the point to have a visual representation through a {@code Color} object.
- * It provides methods to access the color and create a new colored point with the same coordinates and color.
+ * The {@code ColoredPoint} class extends the {@code Point} class by adding a {@code Color} attribute
+ * to represent the point's color. This allows the point to have a visual representation, making it suitable
+ * for applications that require both positional and visual data, such as graphical applications or UI components.
+ * <p>
+ * This class provides methods to access the color of the point, as well as to create a new {@code ColoredPoint}
+ * with the same coordinates and color as the current point.
  */
 public class ColoredPoint extends Point {
-    protected final Color color;
+    private final Color color;
 
     /**
      * Constructs a new {@code ColoredPoint} with the specified {@code x} and {@code y} coordinates and a given {@code Color}.
      *
      * @param x the {@code x} coordinate of the colored point
      * @param y the {@code y} coordinate of the colored point
-     * @param color the color of the point, represented as a {@code Color} object
+     * @param color the {@code Color} of the point, represented as a {@code Color} object
      */
     public ColoredPoint(double x, double y, Color color) {
         super(x, y);
@@ -29,16 +32,21 @@ public class ColoredPoint extends Point {
      * and setting the color to the specified {@code Color}.
      *
      * @param point the {@code Point} to copy coordinates from
-     * @param color the color of the point, represented as a {@code Color} object
+     * @param color the {@code Color} of the point
      */
     public ColoredPoint(@NotNull Point point, Color color) {
         this(point.getX(), point.getY(), color);
     }
 
     /**
-     * Returns the {@code Color} of this colored point.
+     * Returns the {@code Color} of this {@code ColoredPoint}.
      *
-     * @return the {@code Color} of the point
+     * <p>
+     * The color is used for visual representation and can be applied in graphical contexts such as rendering
+     * the point in a UI component or graphical interface.
+     * </p>
+     *
+     * @return the {@code Color} representing the visual appearance of the point
      */
     public Color getColor() {
         return color;
@@ -46,8 +54,9 @@ public class ColoredPoint extends Point {
 
     /**
      * Returns a new {@code ColoredPoint} with the same coordinates and color as this point.
+     * This method allows for creating a copy of the current colored point.
      *
-     * @return a new {@code ColoredPoint} with the same {@code x}, {@code y}, and color as this point
+     * @return a new {@code ColoredPoint} with the same {@code x}, {@code y}, and color
      */
     public ColoredPoint getColoredPoint() {
         return new ColoredPoint(this, this.color);

@@ -1,0 +1,35 @@
+package com.example.executables;
+
+import net.regsirius06.engine.API.Executable;
+import net.regsirius06.engine.API.annotations.ImplementationOf;
+import net.regsirius06.engine.utils.help.InfoExecutable;
+
+import java.util.List;
+
+@ImplementationOf(Executable.class)
+public class Help extends InfoExecutable {
+    @Override
+    protected List<String> authors() {
+        return List.of();
+    }
+
+    @Override
+    protected String description() {
+        return "";
+    }
+
+    @Override
+    protected String version() {
+        return "0.0.1";
+    }
+
+    @Override
+    protected List<String> dependencies() {
+        return List.of();
+    }
+
+    @Override
+    protected String contribute() {
+        return "";
+    }
+}
